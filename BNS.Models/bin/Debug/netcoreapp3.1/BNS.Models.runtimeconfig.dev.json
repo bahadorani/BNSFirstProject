@@ -1,0 +1,8 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\majid\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\majid\\.nuget\\packages"
+    ]
+  }
+}

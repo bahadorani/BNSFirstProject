@@ -1,0 +1,80 @@
+﻿@model IEnumerable<BNS.Models.User>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<br />
+<div class="wrapper">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+
+                        <div class="row">
+                            <div class="col-6 text-left">
+                                <a asp-action="UPsert" class="btn btn-primary"> ایجاد کاربر جدید</a>
+                            </div>
+                            <div class="col-6 text-right">
+                                <h2 class="text-primary"> لیست کاربران</h2>
+                            </div>
+                        </div>
+                        <br />
+                        <br />
+                        <div class="table-rep-plugin">
+                            <div class="table-responsive b-0" data-pattern="priority-columns">
+                                <table id="tech-companies-1" class="table  table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th data-priority="1"> نام </th>
+                                            <th data-priority="3"> نام کاربری </th>
+                                            <th data-priority="1"> تاریخ استخدام </th>
+                                            <th data-priority="3"> نقش  </th>
+                                            <th data-priority="3"> نام ناظر  </th>
+                                            <th data-priority="6"> </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+                                        <tr class="text-center">
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.FullName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.UserName)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.EmploymentDate)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Role.Name)
+                                            </td>
+                                            <td>
+                                                @Html.DisplayFor(modelItem => item.Supervisor.FullName)
+                                            </td>
+
+                                            <td>
+                                                @Html.ActionLink("ویرایش", "Upsert", new { id = item.ID }) |
+                                                @Html.ActionLink("حذف", "Delete", new { id = item.ID })
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!-- end col -->
+        </div>
+        <!-- end row -->
+
+    </div>
+    <!-- end container-fluid -->
+</div>
+<!-- end wrapper -->

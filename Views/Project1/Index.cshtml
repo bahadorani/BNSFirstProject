@@ -1,0 +1,20 @@
+﻿@model List<BNS.Models.ViewModels.TreeNodeVM>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+@*<div id="tree"></div>
+
+
+    <script type="text/javascript">
+        jQuery(function ($) {
+            $("#tree").treeview({ data: @Model});
+        });
+    </script>*@
+
+<div id="tree"></div>
+@section Scripts{
+    <script src="~/js/tree2.js"></script>
+   }

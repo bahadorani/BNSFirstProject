@@ -1,0 +1,73 @@
+﻿@model List<BNS.Models.Project>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="panel panel-primary">
+    <div class="panel-heading panel-head">درختواره پروژه ها</div>
+    <div id="frm-author" class="panel-body">
+        @using (Html.BeginForm())
+        {
+
+            <div class="tree">
+                @for (int i = 0; i < Model.Count(); i++)
+                {
+                    if (Model[i].ParentID == null)
+                    {
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <label for=@i>
+                                        @Html.DisplayFor(model => model[i].ProjectName)
+
+                                    </label>
+                                </a>
+                                <ul>
+                                    @for (int j = 0; j < Model.Count(); j++)
+                                    {
+                                        if (Model[j].ParentID == Model[i].ID)
+                                        {
+                                            <li>
+                                                <a href="#">
+                                                    <label for=@i@j>
+                                                        @Html.DisplayFor(model => model[j].ProjectName)
+                                                    </label>
+                                                </a>
+                                                <ul>
+                                                    @for (int k = 0; k < Model.Count(); k++)
+                                                    {
+                                                        if (Model[k].ParentID == Model[j].ID)
+                                                        {
+                                                            <li>
+                                                                <a href="#">
+                                                                    <label for=@i@j>
+                                                                        @Html.DisplayFor(model => model[k].ProjectName)
+                                                                    </label>
+                                                                </a>
+                                                            </li>
+                                                        }
+                                                    }
+                                                </ul>
+
+                                            </li>
+                                        }
+                                    }
+                                </ul>
+
+                            </li>
+                        </ul>
+                    }
+                }
+
+            </div>
+
+        }
+
+    </div>
+</div>
+
+@section scripts{
+
+    <script src="~/js/tree.js"></script>
+}
+

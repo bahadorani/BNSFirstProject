@@ -1,0 +1,83 @@
+﻿@model BNS.Models.ViewModels.ProjectVM;
+@{
+    var title = "ایجادپروژه";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row px-2 mx-2 backgroundWhite border">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                @if (Model.Project.ID != 0)
+                                {
+                                    <input type="hidden" asp-for="Project.ID" />
+                                    title = "ویرایش پروژه";
+                                }
+
+                                <div class="col-12">
+                                    <h2 class="text-primary">@title</h2>
+                                    <br />
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="Project.ProjectName">عنوان پروژه :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input asp-for="Project.ProjectName" class="form-control" />
+                                            <span asp-validation-for="Project.ProjectName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="Project.ProjectTypeID">نوع پروژه :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            @Html.DropDownListFor(m => m.Project.ProjectTypeID, Model.ProjectTypeList,
+                                                                    "- لطفا نوع پروژه را انتخاب کنید -", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="Project.ParentID"> سرگروه پروژه :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            @Html.DropDownListFor(m => m.Project.ParentID, Model.ProjectList,
+                                                                    "- لطفا یک پروژه را انتخاب کنید -", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-8 offset-4">
+                                            @if (Model.Project.ID != 0)
+                                            {
+                                                //Edit button and back to list
+                                                <partial name="_EditAndBackToList" model="Model.Project.ID" />
+                                            }
+                                            else
+                                            {
+                                                //insert and back to list
+                                                <partial name="_CreateAndBackToList" />
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+

@@ -1,0 +1,12 @@
+E:\Programming\Core\Projects\BNS\BNS.Models\bin\Debug\netcoreapp3.1\BNS.Models.deps.json
+E:\Programming\Core\Projects\BNS\BNS.Models\bin\Debug\netcoreapp3.1\BNS.Models.runtimeconfig.json
+E:\Programming\Core\Projects\BNS\BNS.Models\bin\Debug\netcoreapp3.1\BNS.Models.runtimeconfig.dev.json
+E:\Programming\Core\Projects\BNS\BNS.Models\bin\Debug\netcoreapp3.1\BNS.Models.dll
+E:\Programming\Core\Projects\BNS\BNS.Models\bin\Debug\netcoreapp3.1\BNS.Models.pdb
+E:\Programming\Core\Projects\BNS\BNS.Models\obj\Debug\netcoreapp3.1\BNS.Models.AssemblyInfoInputs.cache
+E:\Programming\Core\Projects\BNS\BNS.Models\obj\Debug\netcoreapp3.1\BNS.Models.AssemblyInfo.cs
+E:\Programming\Core\Projects\BNS\BNS.Models\obj\Debug\netcoreapp3.1\BNS.Models.csproj.CoreCompileInputs.cache
+E:\Programming\Core\Projects\BNS\BNS.Models\obj\Debug\netcoreapp3.1\BNS.Models.dll
+E:\Programming\Core\Projects\BNS\BNS.Models\obj\Debug\netcoreapp3.1\BNS.Models.pdb
+E:\Programming\Core\Projects\BNS\BNS.Models\obj\Debug\netcoreapp3.1\BNS.Models.genruntimeconfig.cache
+E:\Programming\Core\Projects\BNS\BNS.Models\obj\Debug\netcoreapp3.1\BNS.Models.csprojAssemblyReference.cache

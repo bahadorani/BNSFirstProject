@@ -1,0 +1,127 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themesdesign.in/zegva/layouts/horizontal-rtl/pages-starter.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Jan 2021 14:06:33 GMT -->
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui">
+    <title>داشبورد مدیریت </title>
+    <meta content="Responsive admin theme build on top of Bootstrap 4" name="description" />
+    <meta content="Themesdesign" name="author" />
+    <link rel="shortcut icon" href="~/images/favicon.ico">
+    <link href="~/css/tree.css" rel="stylesheet"  type="text/css"/>
+    <link href="~/css/gijgo.css" rel="stylesheet" />
+    <link href="~/zegva/assets/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="~/zegva/assets/css/metismenu.min.css" rel="stylesheet" type="text/css">
+    <link href="~/zegva/assets/css/icons.css" rel="stylesheet" type="text/css">
+    <link href="~/zegva/assets/css/style.css" rel="stylesheet" type="text/css">
+    <link href="~/zegva/assets/css/persian-datepicker.css" rel="stylesheet" type="text/css">
+    <link href="~/zegva/assets/css/persian-datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="~/zegva/assets/css/bootstrap-datepicker.css" rel="stylesheet" type="text/css">
+    <link href="~/zegva/assets/css/persian-datepicker.min.css" rel="stylesheet" type="text/css">
+    <link href="~/css/bootstrap-treeview.css" rel="stylesheet" />
+
+    <!-- Table css -->
+    <link href="~/zegva/plugins/RWD-Table-Patterns/dist/css/rwd-table.min.css" rel="stylesheet" media="screen" />
+    <link href="~/zegva/plugins/bootstrap-datepicker/css/bootstrap-datepicker.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="header-bg">
+        <!-- Navigation Bar-->
+        <header id="topnav">
+            <div class="topbar-main">
+                <div class="container-fluid">
+                    <div class="clearfix"></div>
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end topbar-main -->
+            <!-- MENU Start -->
+            <div class="navbar-custom">
+                <div class="container-fluid">
+
+                    <div id="navigation">
+
+                        <!-- Navigation Menu-->
+                        <ul class="navigation-menu">
+                            <li class="has-submenu">
+                                <a href="#"><i class="dripicons-broadcast"></i> مدیریت کاربران</a>
+                                <ul class="submenu">
+                                    <li> <a class="dropdown-item  " asp-area="" asp-controller="Role" asp-action="Index"> نقش ها </a></li>
+                                    <li><a class="dropdown-item  " asp-area="" asp-controller="User" asp-action="Index"> کاربران </a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="#"><i class="dripicons-view-thumb"></i> پروژه ها</a>
+                                <ul class="submenu">
+                                    <li> <a class="dropdown-item  " asp-area="" asp-controller="ProjectType" asp-action="Index"> انواع پروژه </a></li>
+                                    <li> <a class="dropdown-item  " asp-area="" asp-controller="Project" asp-action="Index">   پروژه ها </a></li>
+                                    <li> <a class="dropdown-item  " asp-area="" asp-controller="Project" asp-action="ViewTree"> درختواره </a></li>
+                                    <li> <a class="dropdown-item  " asp-area="" asp-controller="Project1" asp-action="Index"> درختواره2 </a></li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                        <!-- End navigation menu -->
+                    </div>
+                    <!-- end #navigation -->
+                </div>
+                <!-- end container -->
+            </div>
+            <!-- end navbar-custom -->
+        </header>
+        <!-- End Navigation Bar-->
+
+    </div>
+    <!-- header-bg -->
+
+    <div class="container my-3">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+    <!-- end container-fluid -->
+    <!-- end wrapper -->
+    <!-- Footer -->
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2020 - BNS - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <!-- End Footer -->
+    <!-- jQuery  -->
+    <script src="~/js/jquery.min.js"></script>
+    <script src="~/zegva/assets/js/jquery.min.js"></script>
+    <script src="~/js/gijgo.js"></script>
+    <script src="~/zegva/assets/js/bootstrap.bundle.min.js"></script>
+    <script src="~/zegva/assets/js/jquery.slimscroll.js"></script>
+    <script src="~/zegva/assets/js/waves.min.js"></script>
+    <script src="~/zegva/assets/js/persian-datepicker.js"></script>
+    <script src="~/zegva/assets/js/persian-datepicker.min.js"></script>
+    <script src="~/zegva/assets/js/jquery.persiandatepicker.js"></script>
+    <script src="~/zegva/assets/js/jquery.Bootstrap-PersianDateTimePicker.js"></script>
+    <script src="~/zegva/assets/js/bootstrap-datepicker.min.js"></script>
+
+    <script src="~/zegva/assets/js/dashboard.init.js"></script>
+    <script src="~/zegva/assets/js/persian-date.min.js"></script>
+
+    <script src="~/zegva/assets/js/persian-datepicker.js"></script>
+    <script src="~/zegva/assets/js/persian-date.min.js"></script>
+    <script src="~/js/bootstrap-treeview.js"></script>
+
+    <script src="~/zegva/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js"></script>
+    <!-- Responsive-table-->
+    <script src="~/zegva/plugins/RWD-Table-Patterns/dist/js/rwd-table.min.js"></script>
+
+
+    @RenderSection("Scripts", required: false)
+</body>
+
+<!-- Mirrored from themesdesign.in/zegva/layouts/horizontal-rtl/pages-starter.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 25 Jan 2021 14:06:33 GMT -->
+</html>

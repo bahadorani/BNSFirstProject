@@ -1,0 +1,174 @@
+﻿@model BNS.Models.ViewModels.UserVM;
+@{
+    var title = "ایجاد کاربر جدید";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<form method="post" asp-action="Upsert" enctype="multipart/form-data">
+
+    <div class="wrapper">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row px-2 mx-2 backgroundWhite border">
+                                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                                @if (Model.User.ID != 0)
+                                {
+                                    <input type="hidden" asp-for="User.ID" />
+                                    title = "ویرایش کاربر";
+                                }
+
+                                <div class="col-12">
+                                    <h2 class="text-primary">@title</h2>
+                                    <br />
+                                </div>
+                                <div class="col-9">
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.FullName">نام و نام خانوادگی :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input asp-for="User.FullName" class="form-control" />
+                                            <span asp-validation-for="User.FullName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.Email" for="example-email-input" class="col-form-label">ایمیل :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input asp-for="User.Email" type="email" id="txtEmail" class="form-control" />
+                                            <span asp-validation-for="User.Email" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.Mobile">موبایل :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input asp-for="User.Mobile" id="txtMobile" class="form-control" />
+                                            <span asp-validation-for="User.Mobile" type="number" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.ImageUrl">آدرس عکس :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="file" name="files" id="uploadBox" multiple class="form-control" />
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.ContractType">نوع قرارداد :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            @Html.DropDownListFor(m => m.User.ContractType, Model.ContractTypeList,
+                                                                    "- لطفا نوع قرارداد را مشخص کنید -", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.Status">وضعیت :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            @Html.DropDownListFor(m => m.User.Status, Model.StatusList,
+                                                                    "- لطفا وضعیت را مشخص  کنید -", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.RoleID">نقش :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            @Html.DropDownListFor(m => m.User.RoleID , Model.RoleList ,
+                                                                    "- لطفا یک نقش انتخاب کنید -", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.SupervisorID"> ناظر :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            @Html.DropDownListFor(m => m.User.SupervisorID , Model.SupervisorList ,
+                                                                    "- لطفا یک ناظر انتخاب کنید -", new { @class = "form-control" })
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.EmploymentDate">تاریخ و زمان</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input type="text" class="form-control" asp-for="User.EmploymentDate"  placeholder="mm/dd/yyyy" id="datepicker-autoclose">
+                                            <div class="input-group-append bg-custom b-0"><span class="input-group-text"><i class="mdi mdi-calendar"></i></span></div>
+                                            <span asp-validation-for="User.EmploymentDate" class="text-danger"></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.UserName">نام کاربری :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input asp-for="User.UserName" class="form-control" />
+                                            <span asp-validation-for="User.UserName" class="text-danger"></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-4">
+                                            <label asp-for="User.Password">رمز عبور :</label>
+                                        </div>
+                                        <div class="col-8">
+                                            <input asp-for="User.Password" type="password" class="form-control" />
+                                            <span asp-validation-for="User.Password" class="text-danger"></span>
+                                            @Html.ValidationMessageFor(m => m.User.Password, "لطفا رمز عبور را وارد نمایید.", new { @class = "text-danger" })
+                                            @*<span class="field-validation-error text-danger"
+                                                  data-valmsg-for="User.Password"
+                                                  data-valmsg-replace="true">لطفا رمز عبور را وارد نمایید.</span>*@
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <div class="col-8 offset-4">
+                                            @if (Model.User.ID != 0)
+                                            {
+                                                //Edit button and back to list
+                                                <partial name="_EditAndBackToList" model="Model.User.ID" />
+                                            }
+                                            else
+                                            {
+                                                //insert and back to list
+                                                <partial name="_CreateAndBackToList" />
+                                            }
+                                        </div>
+                                    </div>
+                                </div>
+                                @if (Model.User.ID != 0)
+                                {
+                                    <div class="col-3">
+                                        <img src="@Model.User.ImageUrl" width="100%" style="border-radius:5px; border:1px solid #bbb9b9" />
+                                    </div>}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+@section Scripts{
+    <script>
+        //$(document).ready(function () {
+        //    if (document.getElementById('txtPrice').value == "0") {
+        //        document.getElementById('txtPrice').value = '';
+        //    }
+        //});
+    </script>
+}
